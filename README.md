@@ -1,0 +1,36 @@
+# Overview
+
+sshtun creates mutiple tunnels like `ssh -L`
+
+# Install
+
+`go install github.com/icexin/sshtun`
+
+# Config
+
+``` toml
+[ssh]
+# ssh address
+addr="example.com:22"
+
+# ssh user name
+user="root"
+
+# ssh user password
+password="xxx"
+
+# or ssh private key
+keyPath="/Users/icexin/.ssh/id_rsa"
+
+[ports]
+# listen on 0.0.0.0:8090 and forward connections to icexin.com:80
+8080="icexin.com:80"
+
+# you may specify more tunnels
+8090="google.com:80"
+
+```
+
+# Usage
+
+`./sshtun`
