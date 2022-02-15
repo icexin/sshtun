@@ -108,6 +108,7 @@ func login(cfg *sshServer) (*ssh.Client, error) {
 	sshconfig := &ssh.ClientConfig{
 		User: cfg.User,
 		Auth: methods,
+		HostKeyCallback: ssh.InsecureIgnoreHostKey(),
 	}
 
 	return ssh.Dial("tcp", cfg.Addr, sshconfig)
